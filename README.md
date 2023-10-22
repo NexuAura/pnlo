@@ -1,3 +1,8 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="NSON-logo.svg">
+  <img src="NSON-logo.svg" alt="NSON-logo" height="128">
+</picture>
+
 # NSON (NScript Object Notation)
 ```c
 // This is a comment
