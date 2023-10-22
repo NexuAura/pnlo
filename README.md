@@ -7,7 +7,7 @@
 # NSON (NeonScript Object Notation)
 ```c
 // This is a comment
-"NSON" = "NScript Object Notation"; "version"="1.0";
+"NSON" = "NeonScript Object Notation"; "version"="1.0";
   "windows.text"="Hello World!"; "windows.w"=800;  "windows.h"=600;
   "button.text"="Run!"; "button.x"=500; "button.y"=500;
 ```
