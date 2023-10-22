@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="NSON-logo.svg">
-  <img src="NSON-logo.svg" alt="NSON-logo" height="128">
+  <source media="(prefers-color-scheme: dark)" srcset="sNSON-logo.svg">
+  <img src="sNSON-logo.svg" alt="NSON-logo" height="128">
 </picture>
 
 
