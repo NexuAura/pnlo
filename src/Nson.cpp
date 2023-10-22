@@ -1,4 +1,5 @@
-// Nson, Nson.cpp
+// Nson 1.0, Nson.cpp
+// License：Apache-2.0 license
 // 2023-10-22 <22:47>
 // 豆焰 <beanflame>
 
