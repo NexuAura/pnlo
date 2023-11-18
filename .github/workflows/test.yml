@@ -2,7 +2,10 @@
 name: test
 
 on:
-  - push
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -15,7 +18,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: frigate-apps/NSON@main
+      # uses: frigate-apps/NSON@main
         with:
           xmake-version: ${{ matrix.version }}
       - name: Run tests
