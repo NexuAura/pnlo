@@ -18,12 +18,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      # uses: frigate-apps/NSON@main
+      - uses: xmake-io/github-action-setup-xmake@master
         with:
           xmake-version: ${{ matrix.version }}
       - name: Run tests
         run: |
           xmake --version
-          xmake create -P test
-          xmake build -P test
-          xmake run -P test
+          xmake build -P NSON
+          xmake run -P NSON
