@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d1f5c3b1-fa9a-4814-bbef-53cc9eec1ef7" name="更改" comment="java更新">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/neon/nson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/neon/nson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/neon/nson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/neon/Nson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -53,7 +61,39 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="org.neons" />
+      <recent name="org.neon" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.Nson">
+    <configuration name="Nson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.neon.Nson" />
+      <module name="NSON.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.neon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="nson" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.neon.nson" />
+      <module name="NSON.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.neon.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NSON [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -78,6 +118,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.Nson" />
+        <item itemvalue="应用程序.nson" />
         <item itemvalue="Gradle.NSON [build]" />
       </list>
     </recent_temporary>
