@@ -12,7 +12,7 @@
   "button.text"="Run!"; "button.x"=500; "button.y"=500;
 ```
 
-```
+```c
 "text" = "hello";
 "text2" = "hello";
 "text3" = "hello";
