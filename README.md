@@ -11,6 +11,17 @@
   "windows.text"="Hello World!"; "windows.w"=800;  "windows.h"=600;
   "button.text"="Run!"; "button.x"=500; "button.y"=500;
 ```
+
+```
+"text" = "hello";
+"text2" = "hello";
+"text3" = "hello";
+"text4" = "512";
+"text5" = "12.5";
+```
+语法支持字符串
+
+
 支持整型、浮点型、正负数以及科学计数法表示的数字、布尔、字符串
 
 ## 未来支持的计划
