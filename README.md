@@ -4,7 +4,7 @@
 </picture>
 
 
-# NSON (NeonScript Object Notation)
+# NSON 0.1.0 (NeonScript Object Notation)
 ```c
 // This is a comment
 "NSON" = "NeonScript Object Notation"; "version"="1.0";
