@@ -26,11 +26,11 @@ test.nson
 ```
 test1.nson
 ```c
-"text" = "hello";
-"text2" = "hello";
-"text3" = "hello";
-"text4" = "512";
-"text5" = "12.5";
+text = "hello";
+"text 2" = "hello";
+text3 = "hello";
+"text 4" = "512";
+text5 = "12.5";
 ```
 语法支持字符串
 
