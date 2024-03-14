@@ -1,0 +1,16 @@
+// Hello World!
+
+mair = "Text3";
+[window]
+  text ="Hello World!";
+  w = 600;
+  h = 800;
+~
+
+[App]
+  v = "0.2";
+  r = 2;
+  mkl = "VTeatx";
+~
+
+"Eaoxr toian" = "i4 and e2";
