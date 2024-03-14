@@ -11,8 +11,8 @@ test.nson
 // NSON This is a comment 
 "NSON" = "NeonScript Object Notation";
 "version"="1.0";
-// Windows UI
-[windows]
+// Window UI
+[window]
   text ="Hello World!";
   w = 800;
   h = 600;
