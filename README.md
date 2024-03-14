@@ -8,10 +8,21 @@
 
 test.nson
 ```c
-// This is a comment
-"NSON" = "NeonScript Object Notation"; "version"="1.0";
-  "windows.text"="Hello World!"; "windows.w"=800;  "windows.h"=600;
-  "button.text"="Run!"; "button.x"=500; "button.y"=500;
+// NSON This is a comment 
+"NSON" = "NeonScript Object Notation";
+"version"="1.0";
+// Windows UI
+[windows]
+  text ="Hello World!";
+  w = 800;
+  h = 600;
+  [button]
+    text = "Run!";
+    x = 500;
+    y = 500;
+  ~
+~
+
 ```
 test1.nson
 ```c
