@@ -31,6 +31,9 @@ text = "hello";
 text3 = "hello";
 "text 4" = "512";
 text5 = "12.5";
+
+tew = 12.5;
+
 ```
 语法支持字符串
 
