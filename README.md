@@ -10,10 +10,10 @@ test.nson
 ```c
 // NSON This is a comment 
 "NSON" = "NeonScript Object Notation";
-"version"="1.0";
+"version" = "1.0";
 // Window UI
 [window]
-  text ="Hello World!";
+  text = "Hello World!";
   w = 800;
   h = 600;
   [button]
