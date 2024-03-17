@@ -26,7 +26,7 @@ add_compile_options("$<$<CXX_COMPILER_ID:GNU>:-finput-charset=utf-8>")
 
 
 file(GLOB SRCS
-	"./*"
+	"./cpp/*"
 )
 
 add_executable("pnlo" ${SRCS})
