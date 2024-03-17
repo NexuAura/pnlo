@@ -9,6 +9,8 @@
 #include <vector>
 #include <map>
 
+// ----------------------------------------------------------------------------------
+
 enum TokenType {
     TOKEN_IDN, // 标识符 azAZ09_
     TOKEN_STR, // 字符串
@@ -27,7 +29,6 @@ struct Token {
 
 std::vector<Token> tokenList;
 
-
 bool isDigit(char str) {
     if (str >= '0' && str <= '9') { return true; }
     return false;
@@ -41,17 +42,12 @@ bool isLetter(char str) {
     return false;
 }
 
-
-
-
-
-
+// ----------------------------------------------------------------------------------
 
 class Lexer {
 private:
-    std::string input;
-    int position;
-    int line;
+    std::string input = "";
+    int position = 0;
 
 public:
     Lexer(const std::string& text) : input(text), position(0) {}
@@ -69,9 +65,7 @@ public:
             advance();
         }
 
-        if(currentChar() == '\n'){
-            line++;
-        }
+        
 
         
     }
@@ -143,6 +137,7 @@ public:
 
     Token getNextToken() {
         while (currentChar() != '\0') {
+
             if (isspace(currentChar())) {
                 skipWhitespace();
                 continue;
@@ -150,7 +145,7 @@ public:
 
             if (isLetter(currentChar())) {
                 std::string value = extractName();
-                return Token(TOKEN_STR, value);
+                return Token(TOKEN_IDN, value);
             }
 
 
@@ -192,6 +187,7 @@ public:
                 exit(1);
             }
         }
+
         return Token(TOKEN_END, "");
     }
 };
@@ -205,20 +201,21 @@ std::map<std::string, Token> paser(std::vector<Token> tokenList) {
     std::map<std::string, Token> varMap;
     //for (int i = 0; i < tokenList.size(); i++) {
     int i = 0;
-    // while (true) {
-    //     if (tokenList[i].type != TOKEN_STR) break;    // 识别并储存varName
-    //     std::string varName = tokenList[i].value;
-    //     i++; // 下一个token
-    //     if (tokenList[i].type != TOKEN_ASS) break;    // 识别"="
-    //     i++; // 下一个token
-    //     if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_NUM) break; // 识别并将varName和它的值一起存到map里
-    //     varMap[varName] = tokenList[i];
-    //     i++;
-    //     if (tokenList[i].type != TOKEN_SEM) break;    // 识别";"
-    //     i++;
-    //     if (tokenList[i].type == TOKEN_END) break;
-    // }
+    while (true) {
+        if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_IDN) break;    // 识别并储存varName
+        std::string varName = tokenList[i].value;
+        i++; // 下一个token
+        if (tokenList[i].type != TOKEN_ASS) break;    // 识别"="
+        i++; // 下一个token
+        if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_IDN && tokenList[i].type != TOKEN_NUM ) break; // 识别并将varName和它的值一起存到map里
+        varMap[varName] = tokenList[i];
+        i++;
+        if (tokenList[i].type != TOKEN_SEM) break;    // 识别";"
+        i++;
+        if (tokenList[i].type == TOKEN_END) break;
+    }
 
+    /*
     while (true)
     {
 
@@ -242,6 +239,7 @@ std::map<std::string, Token> paser(std::vector<Token> tokenList) {
             break;
         // i++;
     }
+    */
     return varMap;
 }
 
