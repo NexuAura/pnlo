@@ -14,7 +14,9 @@ target("pnlo")
     -- add_cxflags("-finput-charset=utf-8")
     -- add_cxflags("source-charset:utf-8")
     -- add_includedirs("include")
-    add_files("source/*.cpp")
+    add_files("pnlo/cpp/*")
+    -- add_files("pnlo/cpp/*.cpp")
+
 
 -- add_headerfiles("include/*.h", {
 --     prefixdir = ""
