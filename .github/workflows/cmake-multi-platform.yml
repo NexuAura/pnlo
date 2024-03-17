@@ -48,8 +48,8 @@ jobs:
             c_compiler: cl
           - os: macOS-latest
             c_compiler: clang
-            cpp_compiler: clang++
 
+            
     steps:
     - uses: actions/checkout@v3
 
