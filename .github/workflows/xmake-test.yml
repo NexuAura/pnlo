@@ -3,9 +3,9 @@ name: xmake-test
 
 on:
   push:
-    branches: [ "xmake-cpp" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "xmake-cpp" ]
+    branches: [ "main" ]
 
 jobs:
   build:
