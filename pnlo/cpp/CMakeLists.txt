@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 set(CMAKE_CXX_STANDARD 17)
 
-project(NSON)
+project("pnlo")
 
 # C++17 - 32bit static libgcc
 set(CMAKE_CXX_STANDARD 17)
@@ -29,4 +29,4 @@ file(GLOB SRCS
 	"./*"
 )
 
-add_executable(NSON ${SRCS})
+add_executable("pnlo" ${SRCS})
