@@ -1,6 +1,6 @@
 add_rules("mode.debug", "mode.release")
 
-target("NSON")
+target("pnlo")
 
     set_languages("c++17")
 
