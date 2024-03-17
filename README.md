@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="sNSON-logo.svg">
-  <img src="sNSON-logo.svg" alt="NSON-logo" height="128">
+  <source media="(prefers-color-scheme: dark)" srcset="pnlo-logo.svg">
+  <img src="pnlo-logo.svg" alt="pnlo-logo" height="128">
 </picture>
 
 # PNLO 0.0.1 (Purple Neon Light Object)
