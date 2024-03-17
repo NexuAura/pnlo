@@ -6,9 +6,13 @@ target("pnlo")
 
     set_encodings("source:utf-8")
 
+    -- 设置库
+    -- set_kind("static")
+
+
     -- set_kind("binary")
     -- static   shared
-    set_kind("static")
+    -- set_kind("static")
     -- add_cxflags("-mwindows")
     -- add_cxflags("-fexec-charset=GBK")
     -- add_cxflags("-finput-charset=utf-8")
