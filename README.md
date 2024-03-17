@@ -9,16 +9,14 @@ Pnlo配置文件代码语法简化比较好，再用这样行吧。支持压缩�
 
 ## 代码语法
 ```c
-// patorjk Sub-Zero
 // 
 //   ______   __   __     __         ______    
 //  /\  == \ /\ "-.\ \   /\ \       /\  __ \   
 //  \ \  _-/ \ \ \-.  \  \ \ \____  \ \ \/\ \  
 //   \ \_\    \ \_\\"\_\  \ \_____\  \ \_____\ 
 //    \/_/     \/_/ \/_/   \/_____/   \/_____/ 
-// 
-                                          
-// Pnlo This is a comment 
+//                                  
+// Pnlo This is a comment, patorjk Sub-Zero
 "NSO" = "NeonScript Object";
 "version" = "1.0";
 
