@@ -3,7 +3,7 @@
   <img src="pnlo-logo.svg" alt="pnlo-logo" height="128">
 </picture>
 
-# PNLO 0.0.1 (Purple Neon Light Object)
+# Pnlo 0.0.1 (Purple Neon Light Object)
 Pnlo配置文件代码语法简化比较好，再用这样行吧。支持压缩代码、更多嵌套。
 
 ## 代码语法
