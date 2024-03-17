@@ -179,13 +179,6 @@ std::map<std::string, Token> paser(std::vector<Token> tokenList) {
 
 int main() {
 std::string input = R"(
-// 
-//   ______   __   __     __         ______    
-//  /\  == \ /\ "-.\ \   /\ \       /\  __ \   
-//  \ \  _-/ \ \ \-.  \  \ \ \____  \ \ \/\ \  
-//   \ \_\    \ \_\\"\_\  \ \_____\  \ \_____\ 
-//    \/_/     \/_/ \/_/   \/_____/   \/_____/ 
-//                                  
 // Pnlo This is a comment, patorjk Sub-Zero
 
 "Pnlo" = "Purple Neon Light Object";
