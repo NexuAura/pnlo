@@ -25,5 +25,5 @@ jobs:
       - name: Run tests
         run: |
           xmake --version
-          xmake build NSON
-          xmake run NSON
+          xmake build pnlo
+          xmake run pnlo
