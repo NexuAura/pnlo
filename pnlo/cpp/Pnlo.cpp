@@ -177,37 +177,56 @@ std::map<std::string, Token> paser(std::vector<Token> tokenList) {
     return varMap;
 }
 
-
 int main() {
-    std::string input = R"(
-    // This is a comment
-    "NSON" = "NScript Object Notation"; "version"="1.0";
-    "windows.text"="Hello World!"; "windows.w"=800;  "windows.h"=600;
-    "button.text"="Run!"; "button x"=3.14; "button y"=200;
-    )";
+std::string input = R"(
+// 
+//   ______   __   __     __         ______    
+//  /\  == \ /\ "-.\ \   /\ \       /\  __ \   
+//  \ \  _-/ \ \ \-.  \  \ \ \____  \ \ \/\ \  
+//   \ \_\    \ \_\\"\_\  \ \_____\  \ \_____\ 
+//    \/_/     \/_/ \/_/   \/_____/   \/_____/ 
+//                                  
+// Pnlo This is a comment, patorjk Sub-Zero
+
+"Pnlo" = "Purple Neon Light Object";
+"version" = "1.0"
+Object1 = "obj-1";
+Object2 = "obj-2";
+"Object3" = "obj-3"
+"Object4" = "obj-4";
+main_obj_ = "Main Obj";
+OFF = false;
+ON = true;
+Time = 2207;
+Jra = null;
+
+// [obj]
+//    yes = true;
+// ~
+)";
 
     Lexer lexer(input);
     Token token = lexer.getNextToken();
 
     while (token.type != TOKEN_END) {
         tokenList.push_back(token);
-        std::cout << "Token: " << token.value << ", Type: " << token.type << std::endl;
+        // std::cout << "Token: " << token.value << ", Type: " << token.type << std::endl;
         token = lexer.getNextToken();
     }
     
     tokenList.push_back(token);
-    std::map<std::string, Token> getValue = paser(tokenList);
+    std::map<std::string, Token> obj = paser(tokenList);
     
+    std::cout << "Pnlo:" << obj["Pnlo"].value << std::endl;
+    std::cout << "version:" << obj["version"].value << std::endl;
+    std::cout << "Object1:" << obj["Object1"].value << std::endl;
+    std::cout << "Object2:" << obj["Object2"].value << std::endl;
+    std::cout << "Object3:" << obj["Object3"].value << std::endl;
+    std::cout << "Object4:" << obj["Object4"].value << std::endl;
+    std::cout << "main_obj_:" << obj["main_obj_"].value << std::endl;
+    std::cout << "Time:" << obj["Time"].value << std::endl;
+    std::cout << "OFF:" << obj["OFF"].value << std::endl;
+    std::cout << "ON:" << obj["ON"].value << std::endl;
 
-    std::cout << getValue["NSON"].value << std::endl;
-    std::cout << getValue["version"].value << std::endl;
-
-    std::cout << getValue["windows.text"].value << std::endl;
-    std::cout << getValue["windows.w"].value << std::endl;
-    std::cout << getValue["windows.h"].value << std::endl;
-
-    std::cout << getValue["button.text"].value << std::endl;
-    std::cout << getValue["button x"].value << std::endl;
-    std::cout << getValue["button y"].value << std::endl;
     return 0;
 }
