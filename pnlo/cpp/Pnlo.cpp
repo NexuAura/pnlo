@@ -10,11 +10,12 @@
 #include <map>
 
 enum TokenType {
-    TOKEN_STR,  // 字符串
-    TOKEN_NUM,  // 数字
-    TOKEN_ASS,  // "="
-    TOKEN_SEM,  // ";"
-    TOKEN_END
+    TOKEN_IDN, // 标识符 azAZ09_
+    TOKEN_STR, // 字符串
+    TOKEN_NUM, // 数字
+    TOKEN_ASS, // "="
+    TOKEN_SEM, // ";"
+    TOKEN_END  // !
 };
 
 struct Token {
@@ -26,10 +27,31 @@ struct Token {
 
 std::vector<Token> tokenList;
 
+
+bool isDigit(char str) {
+    if (str >= '0' && str <= '9') { return true; }
+    return false;
+}
+bool isAlpha(char str) {
+    if ((str >= 'A' && str <= 'Z') || (str >= 'a' && str <= 'z')) { return true; }
+    return false;
+}
+bool isLetter(char str) {
+    if (isAlpha(str) || isDigit(str) || str == '_') { return true; }
+    return false;
+}
+
+
+
+
+
+
+
 class Lexer {
 private:
     std::string input;
     int position;
+    int line;
 
 public:
     Lexer(const std::string& text) : input(text), position(0) {}
@@ -46,7 +68,23 @@ public:
         while (currentChar() != '\0' && isspace(currentChar())) {
             advance();
         }
+
+        if(currentChar() == '\n'){
+            line++;
+        }
+
+        
     }
+
+    std::string extractName() {
+        std::string result = "";
+        while (isLetter(currentChar())) {
+            result += currentChar();
+            advance();
+        }
+        return result;
+    }
+
     std::string extractString() {
         // 解析双引号内的字符串
         std::string result = "";
@@ -73,7 +111,7 @@ public:
         else if (currentChar() == '+') {
             advance();
         }
-        while (currentChar() != '\0' && (isdigit(currentChar()) || currentChar() == '.' || currentChar() == 'e' || currentChar() == 'E' || currentChar() == '+' || currentChar() == '-')) {
+        while (currentChar() != '\0' && (isDigit(currentChar()) || currentChar() == '.' || currentChar() == 'e' || currentChar() == 'E' || currentChar() == '+' || currentChar() == '-')) {
             if (currentChar() == '.') {
                 if (hasDecimal) {
                     break;
@@ -89,14 +127,14 @@ public:
             else if ((currentChar() == '+' || currentChar() == '-') && hasExponent && !hasExponentSign) {
                 hasExponentSign = true;
             }
-            else if (!isdigit(currentChar())) {
+            else if (!isDigit(currentChar())) {
                 break;
             }
             result += currentChar();
             advance();
         }
         // 检查结果是否是一个有效数字
-        if (result.empty() || (hasDecimal && result.size() == 1) || (hasExponent && (result.size() == 1 || hasExponentSign || !isdigit(result.back())))) {
+        if (result.empty() || (hasDecimal && result.size() == 1) || (hasExponent && (result.size() == 1 || hasExponentSign || !isDigit(result.back())))) {
             std::cerr << "Invalid number!" << std::endl;
             exit(1);
         }
@@ -110,12 +148,18 @@ public:
                 continue;
             }
 
+            if (isLetter(currentChar())) {
+                std::string value = extractName();
+                return Token(TOKEN_STR, value);
+            }
+
+
             if (currentChar() == '\"') {
                 std::string value = extractString();
                 return Token(TOKEN_STR, value);
             }
 
-            if (isdigit(currentChar()) || currentChar() == '.' || currentChar() == '+' || currentChar() == '-') {
+            if (isDigit(currentChar()) || currentChar() == '.' || currentChar() == '+' || currentChar() == '-') {
                 std::string value = extractNumber();
                 return Token(TOKEN_NUM, value);
             }
@@ -161,18 +205,42 @@ std::map<std::string, Token> paser(std::vector<Token> tokenList) {
     std::map<std::string, Token> varMap;
     //for (int i = 0; i < tokenList.size(); i++) {
     int i = 0;
-    while (true) {
-        if (tokenList[i].type != TOKEN_STR) break;    // 识别并储存varName
+    // while (true) {
+    //     if (tokenList[i].type != TOKEN_STR) break;    // 识别并储存varName
+    //     std::string varName = tokenList[i].value;
+    //     i++; // 下一个token
+    //     if (tokenList[i].type != TOKEN_ASS) break;    // 识别"="
+    //     i++; // 下一个token
+    //     if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_NUM) break; // 识别并将varName和它的值一起存到map里
+    //     varMap[varName] = tokenList[i];
+    //     i++;
+    //     if (tokenList[i].type != TOKEN_SEM) break;    // 识别";"
+    //     i++;
+    //     if (tokenList[i].type == TOKEN_END) break;
+    // }
+
+    while (true)
+    {
+
+        if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_IDN)
+            break; // 识别并储存varName
         std::string varName = tokenList[i].value;
+
         i++; // 下一个token
-        if (tokenList[i].type != TOKEN_ASS) break;    // 识别"="
-        i++; // 下一个token
-        if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_NUM) break; // 识别并将varName和它的值一起存到map里
+        if (tokenList[i].type != TOKEN_ASS)
+            break; // 识别"="
+        i++;       // 下一个token
+        if (tokenList[i].type != TOKEN_STR && tokenList[i].type != TOKEN_NUM)
+            break; // 识别并将varName和它的值一起存到map里
         varMap[varName] = tokenList[i];
         i++;
-        if (tokenList[i].type != TOKEN_SEM) break;    // 识别";"
+        if (tokenList[i].type != TOKEN_SEM) {
+            break; // 识别";"
+        }
         i++;
-        if (tokenList[i].type == TOKEN_END) break;
+        if (tokenList[i].type == TOKEN_END)
+            break;
+        // i++;
     }
     return varMap;
 }
@@ -182,10 +250,10 @@ std::string input = R"(
 // Pnlo This is a comment, patorjk Sub-Zero
 
 "Pnlo" = "Purple Neon Light Object";
-"version" = "1.0"
+"version" = "1.0";
 Object1 = "obj-1";
 Object2 = "obj-2";
-"Object3" = "obj-3"
+"Object3" = "obj-3";
 "Object4" = "obj-4";
 main_obj_ = "Main Obj";
 OFF = false;
