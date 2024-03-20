@@ -32,6 +32,9 @@ ON = true;
 
 obj >
   yes = true;
+  text >
+    Time = 5600;
+  ~
 ~
 
 ```
