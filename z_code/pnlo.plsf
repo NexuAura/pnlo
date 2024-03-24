@@ -1,0 +1,38 @@
+
+
+
+巴科斯范式
+(BNF) Backus-Naur Form
+
+编程语言语法范式（者：豆焰）
+(PLSF) Programming Language Syntax Form
+
+
+
+pnlo:
+    Lexer:
+        IDN 标识符：    : [a-z] [A-Z] [0-9]"_"
+        STR 字符串：    : ""
+        NUM 数字符号    :       [0-9]
+        ASS 赋值符号    : "=" | ":"
+        SEM 结束符号    : ";" | "\n"
+        ">"
+        "~"
+
+    Parse 
+        : ID = ( IDN| STR ) ;
+        | EXR = ID ASS (ID/NUM) SEM ;
+        | OBJ = ID '>' ( EXR | OBJ )* '~';
+
+        OBJ - 
+            EXR -
+            EXR -
+            EXR - 
+            OBJ - 
+                EXR -
+                EXR -
+                EXR - 
+                    OBJ - 
+                    EXR -
+                    EXR -
+                    EXR - 

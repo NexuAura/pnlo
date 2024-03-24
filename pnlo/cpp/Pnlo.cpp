@@ -9,7 +9,8 @@
 #include <vector>
 #include <map>
 
-// ----------------------------------------------------------------------------------
+
+
 
 enum TokenType {
     TOKEN_IDN, // 标识符 azAZ09_
@@ -46,7 +47,7 @@ bool isLetter(char str) {
 
 class Lexer {
 private:
-    std::string input = "";
+    std::string input = ""; 
     int position = 0;
 
 public:
@@ -138,28 +139,28 @@ public:
     Token getNextToken() {
         while (currentChar() != '\0') {
 
-            if (isspace(currentChar())) {
+            if (isspace(currentChar()))
+            {
                 skipWhitespace();
                 continue;
             }
-
-            if (isLetter(currentChar())) {
+            else if (isLetter(currentChar()))
+            {
                 std::string value = extractName();
                 return Token(TOKEN_IDN, value);
             }
-
-
-            if (currentChar() == '\"') {
+            else if (currentChar() == '\"')
+            {
                 std::string value = extractString();
                 return Token(TOKEN_STR, value);
             }
-
-            if (isDigit(currentChar()) || currentChar() == '.' || currentChar() == '+' || currentChar() == '-') {
+            else if (isDigit(currentChar()) || currentChar() == '.' || currentChar() == '+' || currentChar() == '-')
+            {
                 std::string value = extractNumber();
                 return Token(TOKEN_NUM, value);
             }
-
-            if (currentChar() == '/') {
+            else if (currentChar() == '/')
+            {
                 advance();
                 if (currentChar() == '/') {
                     advance();
@@ -256,7 +257,7 @@ Object2 = "obj-2";
 main_obj_ = "Main Obj";
 OFF = false;
 ON = true;
-Time = 2207;
+Time = 2207.2;
 Jra = null;
 
 // [obj]
