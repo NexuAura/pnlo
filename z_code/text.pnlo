@@ -25,7 +25,7 @@ ON = true;
 //
 
 // 对象定义， 一般形式:
-[obj]
+obj >
    yes = true;
    num = 90;
 ~
