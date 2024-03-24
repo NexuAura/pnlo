@@ -30,8 +30,11 @@ Time = 2207;
 OFF = false;
 ON = true;
 
-[obj]
-   yes = true;
+obj >
+  yes = true;
+  text >
+    Time = 5600;
+  ~
 ~
 
 ```
