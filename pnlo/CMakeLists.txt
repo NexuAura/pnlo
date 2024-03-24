@@ -29,4 +29,5 @@ file(GLOB SRCS
 	"./cpp/*"
 )
 
+set(EXECUTABLE_OUTPUT_PATH "../../")
 add_executable("pnlo" ${SRCS})
