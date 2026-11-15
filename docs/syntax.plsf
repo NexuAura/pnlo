@@ -1,6 +1,3 @@
-
-
-
 巴科斯范式
 (BNF) Backus-Naur Form
 
@@ -8,31 +5,50 @@
 (PLSF) Programming Language Syntax Form
 
 
-
 pnlo:
     Lexer:
-        IDN 标识符：    : [a-z] [A-Z] [0-9]"_"
-        STR 字符串：    : ""
-        NUM 数字符号    :       [0-9]
-        ASS 赋值符号    : "=" | ":"
-        SEM 结束符号    : ";" | "\n"
-        ">"
-        "~"
+        IDN 标识符      : [a-z] [A-Z] [0-9] "_"
+        STR 字符串      : ""            （无转义，读到下一个引号为止）
+        NUM 数字符号    : [0-9] "." "e" "E" "+" "-"
+        ASS 赋值符号    : "="
+        SEM 结束符号    : ";"
+        COM 逗号        : ","
+        LBR 左括号      : "["
+        RBR 右括号      : "]"
+        OBS 对象开始    : ">"
+        OBE 对象结束    : "~"
+        EOF 结束        : <文件末尾>
 
-    Parse 
-        : ID = ( IDN| STR ) ;
-        | EXR = ID ASS (ID/NUM) SEM ;
-        | OBJ = ID '>' ( EXR | OBJ )* '~';
+        空白            : space | tab | "\r" | "\n"
+        行注释          : "//" 至行尾
+        块注释          : "/*" ... "*/"
 
-        OBJ - 
-            EXR -
-            EXR -
-            EXR - 
-            OBJ - 
-                EXR -
-                EXR -
-                EXR - 
-                    OBJ - 
-                    EXR -
-                    EXR -
-                    EXR - 
+    Parse
+        FILE = STMT* EOF ;
+        STMT = ASSIGN | ARR | OBJ | OTHER ;
+
+        ASSIGN = ID ASS VAL SEM ;
+        ID     = ( IDN | STR ) ;
+        VAL    = ( IDN | STR | NUM ) ;
+
+        ARR    = ID ASS LBR ( VAL ( COM VAL )* )? RBR SEM ;
+        OBJ    = ID OBS STMT* OBE ;
+        OTHER  = 其余 token 序列，跳过至下一个 SEM ;
+
+
+    Example (examples/text.pnlo)
+        // 注释
+        "Pnlo" = "Purple Neon Light Object";        // ID = STR
+        Time = 2026;                                // ID = IDN（纯数字开头按 IDN 处理）
+        OFF = false;                                // ID = IDN
+        star_male = ["Hello", "World!"];            // 数组
+        obj >                                       // 对象（可嵌套）
+            yes = true;
+            num = 90;
+            qwe = ["a", "b", "c"];
+        ~
+
+
+    当前实现
+        输出：顶层 ASSIGN 的 name:value，按文件出现顺序
+        跳过：ARR（数组赋值）与 OBJ（对象块），不做求值

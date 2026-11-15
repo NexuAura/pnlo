@@ -6,19 +6,21 @@
 //    \/_/     \/_/ \/_/   \/_____/   \/_____/ 
 //                                
 // Pnlo This is a comment, patorjk Sub-Zero
-"Pnlo" = "Pnlo";
-"version" = "1.0";
 
+"Pnlo" = "Purple Neon Light Object";
+"version" = "1.0";
 Object1 = "obj-1";
 Object2 = "obj-2";
-
 "Object3" = "obj-3";
 "Object4" = "obj-4";
-
 main_obj_ = "Main Obj";
-Time = 2277;
+
+Time = 2026;
 OFF = false;
 ON = true;
+
+// 数组
+star_male = ["Hello", "World!"];
 
 // 注释风格完全一致
 /**/
@@ -28,5 +30,6 @@ ON = true;
 obj >
    yes = true;
    num = 90;
+   qwe = ["a", "b","c"];
 ~
 

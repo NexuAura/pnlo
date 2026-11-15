@@ -1,13 +1,28 @@
-# Xmake cache
-.xmake/
+# 构建产物
 build/
+build-*/
+out/
+.xmake/
+compile_commands.json
 
-# MacOS Cache
+# 目标文件
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+CMakeUserPresets.json
+
+# IDE / 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 系统
 .DS_Store
-.vscode
-
-# VSCode
-.vscode
-
-pnlo.exe
-pnlo
+Thumbs.db
